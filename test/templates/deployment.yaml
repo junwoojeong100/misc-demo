@@ -35,8 +35,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             {{- range .Values.ports }}
-            - name: {{ .name }}
-              containerPort: {{ .containerPort }}
+            - containerPort: {{ .containerPort }}
+              name: {{ .name }}
               protocol: {{ .protocol }}
             {{- end }}         
           env:
