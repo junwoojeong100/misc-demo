@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: true
+  create: false
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
@@ -80,3 +80,31 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+ports:
+  - name: http   
+    containerPort: 8080
+    protocol: TCP
+  - name: https  
+    containerPort: 8443
+    protocol: TCP
+  - name: jolokia       
+    containerPort: 8778
+    protocol: TCP
+  - name: jmx       
+    containerPort: 9779
+    protocol: TCP
+
+env:
+  - name: JAVA_OPTIONS
+    value: >-
+      -Djava.net.preferIPv4Stack=true -verbose:gc -Xloggc:/tmp/gc.log
+      -XX:+UseG1GC -XX:+DisableExplicitGC -XX:+UseStringDeduplication
+  - name: LANG
+    value: jp_JP.utf-8
+  - name: LOGGING_LEVEL_COM_SHB
+    value: DEBUG
+  - name: SPRING_PROFILES_ACTIVE
+    value: staging
+  - name: TZ
+    value: Asia/Tokyo
