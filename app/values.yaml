@@ -112,4 +112,4 @@ env:
 route:
   enabled: true
 #  host: spring-demo-default.apps.cluster-t42tz.t42tz.sandbox1493.opentlc.com
-  path: /hello    
+  path: "/hello"   
