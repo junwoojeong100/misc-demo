@@ -9,7 +9,9 @@ metadata:
     'haproxy.router.openshift.io/timeout': '60s'
 spec:
 #  host: {{ .Values.route.host }}
+  {{- with .Values.route.path }}
   path: {{ .Values.route.path }}
+  {{- end }}
   port:
     targetPort: http
   #tls:
