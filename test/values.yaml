@@ -94,17 +94,3 @@ ports:
   - containerPort: 9779
     name: jmx
     protocol: TCP
-
-env:
-  - name: JAVA_OPTIONS
-    value: >-
-      -Djava.net.preferIPv4Stack=true -verbose:gc -Xloggc:/tmp/gc.log
-      -XX:+UseG1GC -XX:+DisableExplicitGC -XX:+UseStringDeduplication
-  - name: LANG
-    value: jp_JP.utf-8
-  - name: LOGGING_LEVEL_COM_SHB
-    value: DEBUG
-  - name: SPRING_PROFILES_ACTIVE
-    value: staging
-  - name: TZ
-    value: Asia/Tokyo
