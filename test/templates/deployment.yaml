@@ -38,12 +38,7 @@ spec:
             - containerPort: {{ .containerPort }}
               name: {{ .name }}
               protocol: {{ .protocol }}
-            {{- end }}         
-          env:
-            {{- range .Values.env }}
-            - name: {{ .name }}
-              value: {{ .value }}
-            {{- end }}              
+            {{- end }}                  
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
