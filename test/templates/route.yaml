@@ -8,7 +8,7 @@ metadata:
   annotations:
     'haproxy.router.openshift.io/timeout': '60s'
 spec:
-  host: {{ .Values.route.host }}
+#  host: {{ .Values.route.host }}
   path: {{ .Values.route.path }}
   port:
     targetPort: http
