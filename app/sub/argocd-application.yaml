@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: spring-demo
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: app
+    repoURL: 'https://github.com/joon9293/misc-demo.git'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - sub/values.yaml
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
